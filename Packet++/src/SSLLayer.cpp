@@ -37,7 +37,8 @@ bool SSLLayer::IsSSLMessage(uint16_t srcPort, uint16_t dstPort, uint8_t* data, s
 		recordVersion == SSLVersion::TLS1_2 ||
 		recordVersion == SSLVersion::TLS1_1 ||
 		recordVersion == SSLVersion::TLS1_0 ||
-		recordVersion == SSLVersion::SSL3)
+		recordVersion == SSLVersion::SSL3 	||
+		recordVersion == SSLVersion::GMTLS1)
 		return true;
 	else
 		return false;

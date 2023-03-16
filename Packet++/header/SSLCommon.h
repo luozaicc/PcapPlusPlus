@@ -123,6 +123,7 @@ namespace pcpp
 		 */
 		enum SSLVersionEnum
 		{
+			GMTLS1 = 0x0101,
 			/** SSL 2.0 */
 			SSL2   = 0x0200,
 			/** SSL 3.0 */

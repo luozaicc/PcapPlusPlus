@@ -25,6 +25,9 @@ SSLVersion::SSLVersionEnum SSLVersion::asEnum(bool countTlsDraftsAs1_3)
 	if (m_SSLVersionValue == 0x200)
 		return SSLVersion::SSL2;
 
+	if (m_SSLVersionValue == 0x0101)
+		return SSLVersion::GMTLS1;
+
 	return SSLVersion::Unknown;
 }
 
@@ -35,6 +38,8 @@ std::string SSLVersion::toString(bool countTlsDraftsAs1_3)
 
 	switch (enumValue)
 	{
+	case SSLVersion::GMTLS1:
+		return "GMTLS 1.1";
 	case SSLVersion::TLS1_3:
 		return "TLS 1.3";
 	case SSLVersion::TLS1_2:
