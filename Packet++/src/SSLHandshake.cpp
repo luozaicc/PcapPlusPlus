@@ -1590,7 +1590,8 @@ SSLServerHelloMessage::SSLServerHelloMessage(uint8_t* data, size_t dataLen, SSLH
 	uint8_t* extensionPos = extensionLengthPos + sizeof(uint16_t);
 	uint8_t* curPos = extensionPos;
 	size_t messageLen = getMessageLength();
-	size_t minSSLExtensionLen = 2*sizeof(uint16_t) + sizeof(uint8_t);
+	// size_t minSSLExtensionLen = 2*sizeof(uint16_t) + sizeof(uint8_t);
+	size_t minSSLExtensionLen = 2*sizeof(uint16_t); // 扩展数据长度有可能为0, 所以最小长度的计算不应加一字节的数据
 	while ((curPos - extensionPos) < (int)extensionLength
 		&& (curPos - m_Data) < (int)messageLen
 		&& (int)messageLen - (curPos - m_Data) >= (int)minSSLExtensionLen)
